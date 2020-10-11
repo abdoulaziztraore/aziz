@@ -1,0 +1,12 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+salle_tp_accueil:
+    path:     /accueil
+    controller: App\Controller\SalleController::accueil
+
+
+salle_tp_afficher:
+    path:     /afficher/{numero}
+    controller: App\Controller\SalleController::afficher
