@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sav{% endblock %}
+
+{% block body %}
+    <h1>Sav</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sav.id }}</td>
+            </tr>
+            <tr>
+                <th>Sav_nom</th>
+                <td>{{ sav.savNom }}</td>
+            </tr>
+            <tr>
+                <th>Sav_prenom</th>
+                <td>{{ sav.savPrenom }}</td>
+            </tr>
+            <tr>
+                <th>Sav_adr1</th>
+                <td>{{ sav.savAdr1 }}</td>
+            </tr>
+            <tr>
+                <th>Sav_adr2</th>
+                <td>{{ sav.savAdr2 }}</td>
+            </tr>
+            <tr>
+                <th>Sav_codepos</th>
+                <td>{{ sav.savCodepos }}</td>
+            </tr>
+            <tr>
+                <th>Sav_ville</th>
+                <td>{{ sav.savVille }}</td>
+            </tr>
+            <tr>
+                <th>Sav_probleme</th>
+                <td>{{ sav.savProbleme }}</td>
+            </tr>
+            <tr>
+                <th>Dt_crea</th>
+                <td>{{ sav.dtCrea ? sav.dtCrea|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('sav_index') }}">back to list</a>
+
+    <a href="{{ path('sav_edit', {'id': sav.id}) }}">edit</a>
+
+    {{ include('sav/_delete_form.html.twig') }}
+{% endblock %}

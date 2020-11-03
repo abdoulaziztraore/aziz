@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sav index{% endblock %}
+
+{% block body %}
+    <h1>Sav index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Sav_nom</th>
+                <th>Sav_prenom</th>
+                <th>Sav_adr1</th>
+                <th>Sav_adr2</th>
+                <th>Sav_codepos</th>
+                <th>Sav_ville</th>
+                <th>Sav_probleme</th>
+                <th>Dt_crea</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sav in savs %}
+            <tr>
+                <td>{{ sav.id }}</td>
+                <td>{{ sav.savNom }}</td>
+                <td>{{ sav.savPrenom }}</td>
+                <td>{{ sav.savAdr1 }}</td>
+                <td>{{ sav.savAdr2 }}</td>
+                <td>{{ sav.savCodepos }}</td>
+                <td>{{ sav.savVille }}</td>
+                <td>{{ sav.savProbleme }}</td>
+                <td>{{ sav.dtCrea ? sav.dtCrea|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('sav_show', {'id': sav.id}) }}">show</a>
+                    <a href="{{ path('sav_edit', {'id': sav.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('sav_new') }}">Create new</a>
+{% endblock %}
